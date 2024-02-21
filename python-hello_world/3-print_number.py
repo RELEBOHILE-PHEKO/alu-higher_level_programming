@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-print(f"{number}, followed by Battery street,\n")
+print(f"{number if 'number' in locals() else ''} Battery street")
