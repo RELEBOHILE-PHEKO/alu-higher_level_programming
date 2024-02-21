@@ -1,15 +1,2 @@
-#!/user/bin/python3
-# Check if $PYFILE is set
-if [ -z "$PYFILE" ]; then
-    echo "Error: PYFILE environment variable is not set."
-    exit 1
-fi
-
-# Check if the file specified in $PYFILE exists
-if [ ! -f "$PYFILE" ]; then
-    echo "Error: Python file '$PYFILE' not found."
-    exit 1
-fi
-
-# Run the Python script
-python "$PYFILE"
+#!/user/bin/bash
+echo "$PYFILE" > /tmp/temp_script.py; python3 /tmp/temp_script.py
