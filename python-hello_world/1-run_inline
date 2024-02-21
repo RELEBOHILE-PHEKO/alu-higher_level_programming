@@ -1,5 +1,2 @@
 #!/bin/bash
-
-echo "$PYCODE" > /tmp/temp_script.py
-python3 /tmp/temp_script.py
-
+echo "$PYCODE" > /tmp/temp_script.py; python3 /tmp/temp_script.py
