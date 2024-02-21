@@ -1,2 +1,2 @@
-#!/user/bin/bash
+#!/bin/bash
 echo "$PYFILE" > /tmp/temp_script.py; python3 /tmp/temp_script.py
