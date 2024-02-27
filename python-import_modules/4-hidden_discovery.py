@@ -6,4 +6,3 @@ if __name__ == "__main__":
     for i in range(0, len(alif)):
         if alif[i][:2] != "__":
             print("{:s}".format(alif[i]))
-
