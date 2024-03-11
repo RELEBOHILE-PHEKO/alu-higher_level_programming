@@ -68,34 +68,3 @@ class Rectangle:
         Args:
             value (int): height of the rectangle.
 
-        Raises:
-            TypeError: if height is not an integer.
-            ValueError: if height is less than 0.
-        """
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        elif value < 0:
-            raise ValueError("height must be >= 0")
-        else:
-            self.__height = value
-
-    def area(self):
-        """Calculates area of a rectangle.
-
-        Returns:
-            int: area.
-        """
-        return self.__height * self.__width
-
-    def perimeter(self):
-        """Calculates perimeter of a rectangle
-
-        Returns:
-            int: perimeter.
-        """
-        if self.__height == 0 or self.width == 0:
-            return 0
-        else:
-            return 2 * (self.__height + self.__width)
-
-
