@@ -98,4 +98,18 @@ class Rectangle:
 
         Returns:
             str: the rectangle
+        """
+        rectangle = []
 
+        if self.__width == 0 or self.__height == 0:
+            return ""
+
+        for i in range(self.__height):
+            for j in range(self.__width):
+                rectangle.append("#")
+            rectangle.append("\n")
+
+        # remove blank line
+        rectangle.pop()
+
+        return "".join(rectangle)
