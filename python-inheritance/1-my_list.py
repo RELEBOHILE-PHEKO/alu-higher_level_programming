@@ -1,15 +1,17 @@
 #!/usr/bin/python3
-"""Module Mylist
-Creates a class inheriting from list class
-"""
+"""Defines a class and inherited class-checking function."""
 
 
-class MyList(list):
-    """Class MyList inherits from list"""
+def is_kind_of_class(obj, a_class):
+    """Check if an object is an instance or inherited instance of a class.
 
-    def print_sorted(self):
-        """Prints the list, in ascending order"""
-
-        new_list = self[:]
-        new_list.sort()
-        print("{}".format(new_list))
+    Args:
+        obj (any): The object to check.
+        a_class (type): The class to match the type of obj to.
+    Returns:
+        If obj is an instance or inherited instance of a_class - True.
+        Otherwise - False.
+    """
+    if isinstance(obj, a_class):
+        return True
+    return False
