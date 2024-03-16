@@ -1,26 +1,31 @@
 #!/usr/bin/python3
+"""
+This script adds all arguments to a Python list,
+and then saves them to a file named 'add_item.json'.
+"""
+import sys
 
-"""Defines a base geometry class BaseGeometry."""
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+
+filename = "add_item.json"
 
 
-class BaseGeometry:
-    """Reprsent base geometry."""
+def add_and_save_to_file():
+    """
+    Load items from a JSON file, extend the list with command-line arguments,
+    and save the updated list back to the file.
 
-    def area(self):
-        """Not yet implemented."""
-        raise Exception("area() is not implemented")
+    If the file doesn't exist, an empty list is created and saved.
+    """
+    try:
+        existing_items = load_from_json_file(filename)
+    except FileNotFoundError:
+        existing_items = []
 
-    def integer_validator(self, name, value):
-        """Validate a parameter as an integer.
+    existing_items.extend(sys.argv[1:])
+    save_to_json_file(existing_items, filename)
 
-        Args:
-            name (str): The name of the parameter.
-            value (int): The parameter to validate.
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is <= 0.
-        """
-        if type(value) != int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+
+if __name__ == "__main__":
+    add_and_save_to_file()
