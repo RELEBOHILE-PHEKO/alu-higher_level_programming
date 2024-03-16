@@ -1,18 +1,26 @@
 #!/usr/bin/python3
-"""
- save items to a file.
-"""
 
-import sys
-import os.path
+"""Defines a base geometry class BaseGeometry."""
 
-args = sys.argv[1:]
 
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+class BaseGeometry:
+    """Reprsent base geometry."""
 
-item = []
-if os.path.exists("./add_item.json"):
-    item = load_from_json_file("add_item.json")
+    def area(self):
+        """Not yet implemented."""
+        raise Exception("area() is not implemented")
 
-save_to_json_file(item + args, "add_item.json")
+    def integer_validator(self, name, value):
+        """Validate a parameter as an integer.
+
+        Args:
+            name (str): The name of the parameter.
+            value (int): The parameter to validate.
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is <= 0.
+        """
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
