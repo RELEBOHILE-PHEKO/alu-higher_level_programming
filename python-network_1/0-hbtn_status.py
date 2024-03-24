@@ -1,21 +1,16 @@
-#!/usr/bin/python3
+!/usr/bin/python3
 """A script that
-- fetches https://intranet.hbtn.io/status and http://0.0.0.0:5050/status
-- uses urllib package
+- fetches https://alu-intranet.hbtn.io/status.
+- uses urlib package
 """
 
-import urllib.request
 
-def fetch_status(url):
-    with urllib.request.urlopen(url) as res:
+if __name__ == '__main__':
+    import urllib.request
+
+    with urllib.request.urlopen('https://alu-intranet.hbtn.io/status, https://intranet.hbtn.io/status') as res:
         content = res.read()
-        print("Body response for {}:".format(url))
+        print("Body response:")
         print("\t- type: {}".format(type(content)))
         print("\t- content: {}".format(content))
         print("\t- utf8 content: {}".format(content.decode('utf-8')))
-        print()
-
-if __name__ == '__main__':
-    urls = ['https://alu-intranet.hbtn.io/status', 'http://0.0.0.0:5050/status']
-    for url in urls:
-        fetch_status(url)
