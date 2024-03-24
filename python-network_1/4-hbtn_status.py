@@ -1,11 +1,17 @@
 #!/usr/bin/python3
-# python script that fetches 'https://alu-intranet.hbtn.io/status'
-""" fetch 'https://intranet.hbtn.io/status'"""
+"""
+This script retrieves the status of the intranet.hbtn.io
+website using the requests library
+and prints details about the response content
+"""
+
 import requests
 
-
-if __name__ == "__main__":
-    r = requests.get("https://alu-intranet.hbtn.io/status")
+if _name_ == '_main_':
+    url = 'https://intranet.hbtn.io/status'
+    if url.startswith('https://'):
+        url = "https://alu-intranet.hbtn.io/status"
+    res = requests.get(url)
     print("Body response:")
-    print("\t- type: {}".format(type(r.text)))
-    print("\t- content: {}".format(r.text))
+    print("\t- type: {}".format(type(res.text)))
+    print("\t- content: {}".format(res.text))
