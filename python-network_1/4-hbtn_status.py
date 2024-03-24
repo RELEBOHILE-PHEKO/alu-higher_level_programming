@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-"""
-This script retrieves the status of the intranet.hbtn.io
+"""This script retrieves the status of the intranet.hbtn.io
 website using the requests library
-and prints details about the response content
-"""
+and prints details about the response content"""
 
 import requests
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     url = 'https://intranet.hbtn.io/status'
     if url.startswith('https://'):
         url = "https://alu-intranet.hbtn.io/status"
