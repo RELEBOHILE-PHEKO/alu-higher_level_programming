@@ -1,20 +1,18 @@
 #!/usr/bin/python3
-""" prints the first State object from the database hbtn_0e_6_usa
-"""
-import sys
-from model_state import Base, State
-from sqlalchemy import (create_engine)
-from sqlalchemy.orm import sessionmaker
-
+"""Script that takes in arguments and displays all values in the states
+table of hbtn_0e_0_usa where name matches the argument, safe from MySQL
+injections"""
+import MySQLdb
+from sys import argv
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
-    Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    instance = session.query(State).first()
-    if instance is None:
-        print("Nothing")
-    else:
-        print(instance.id, instance.name, sep=": ")
+    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                         passwd=argv[2], db=argv[3], charset="utf8")
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC",
+                (argv[4],))
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
+    cur.close()
+    db.close()
