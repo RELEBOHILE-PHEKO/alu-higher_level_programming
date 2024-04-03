@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""A script that prints all City objects from the database hbtn_0e_6_usa
-    Username, password and dbname wil be passed as arguments to the script"""
+"""prints the State object with the name passed as argument from the database"""
 
 
 import sys
