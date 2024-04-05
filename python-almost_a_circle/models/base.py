@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """Defines a base model class."""
 import json
 import csv
@@ -7,20 +6,18 @@ import turtle
 
 
 class Base:
-    """
-    Base model.
+    """Represent the base model.
 
-    This Represents the "base" for all other classes in project 0x0C*.
+    Represents the "base" for all other classes in project 0x0C*.
 
-    Private Class Attributes:
-        __nb_object (int): Number of instantiated Bases.
+    Attributes:
+        __nb_objects (int): The number of instantiated Bases.
     """
 
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """
-        Initialize a new Base.
+        """Initialize a new Base.
 
         Args:
             id (int): The identity of the new Base.
@@ -33,8 +30,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """
-        Return the JSON serialization of a list of dicts.
+        """Return the JSON serialization of a list of dicts.
 
         Args:
             list_dictionaries (list): A list of dictionaries.
@@ -45,8 +41,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """
-        Write the JSON serialization of a list of objects to the file.
+        """Write the JSON serialization of a list of objects to a file.
 
         Args:
             list_objs (list): A list of inherited Base instances.
@@ -61,8 +56,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """
-        Return the deserialization of the JSON string.
+        """Return the deserialization of a JSON string.
 
         Args:
             json_string (str): A JSON str representation of a list of dicts.
@@ -76,8 +70,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """
-        Returns a class instantied from a dictionary of attributes.
+        """Return a class instantied from a dictionary of attributes.
 
         Args:
             **dictionary (dict): Key/value pairs of attributes to initialize.
@@ -92,8 +85,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """
-        Returns the list of classes instantiated from a file of the JSON strings.
+        """Return a list of classes instantiated from a file of JSON strings.
 
         Reads from `<cls.__name__>.json`.
 
@@ -111,8 +103,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """
-        Write a CSV serialization of a list of objects to a file.
+        """Write the CSV serialization of a list of objects to a file.
 
         Args:
             list_objs (list): A list of inherited Base instances.
@@ -132,8 +123,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """
-        Returns the list of classes instantiated from a CSV file.
+        """Return a list of classes instantiated from a CSV file.
 
         Reads from `<cls.__name__>.csv`.
 
@@ -157,8 +147,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """
-        Draws the  Rectangles and Squares using the turtle module.
+        """Draw Rectangles and Squares using the turtle module.
 
         Args:
             list_rectangles (list): A list of Rectangle objects to draw.
@@ -193,5 +182,6 @@ class Base:
                 turt.left(90)
                 turt.forward(sq.height)
                 turt.left(90)
-                turt.hideturtle()
-                turtle.exitonclick()
+            turt.hideturtle()
+
+        turtle.exitonclick()
