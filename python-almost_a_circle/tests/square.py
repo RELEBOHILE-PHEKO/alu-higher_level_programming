@@ -644,4 +644,4 @@ class TestSquare_to_dictionary(unittest.TestCase):
             s.to_dictionary(1)
 
 if __name__ == "__main__":
-    unittest.main()
+        unittest.main()
