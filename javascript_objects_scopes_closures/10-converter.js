@@ -1,8 +1,13 @@
 #!/usr/bin/node
-
-exports.converter = function(base) {
-    return function convert(number) {
-        return number < base ? '' + number : convert(~~(number / base)) + '' + number % base;
+function converter(base) {
+    return function(number) {
+        if (number < base) {
+            return '' + number;
+        } else {
+            return converter(base)(Math.floor(number / base)) + '' + number % base;
+        }
     };
-};
+}
+
+exports.converter = converter;
 
