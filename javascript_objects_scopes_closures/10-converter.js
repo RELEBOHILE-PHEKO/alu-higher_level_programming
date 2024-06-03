@@ -1,13 +1,7 @@
 #!/usr/bin/node
-function converter(base) {
-    return function(number) {
-        if (number < base) {
-            return '' + number;
-        } else {
-            return converter(base)(Math.floor(number / base)) + '' + number % base;
-        }
-    };
-}
 
-exports.converter = converter;
-
+exports.converter = function (base) {
+  return function convert (number) {
+    return number < base ? '' + (number < 10 ? number : String.fromCharCode(number + 87)) : convert((number / base) | 0) + '' + (number % base < 10 ? number % base : String.fromCharCode(number % base + 87));
+  };
+};
